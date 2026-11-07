@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "AI Scanner",
+    "slug": "ai-scanner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "android": {
+      "package": "com.yourname.aiscanner",
+      "permissions": ["android.permission.CAMERA"]
+    },
+    "plugins": [
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Aplikasi membutuhkan akses kamera untuk melakukan scan AI."
+        }
+      ]
+    ]
+  }
+}

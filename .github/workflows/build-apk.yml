@@ -23,6 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Ambil Project ID Otomatis
+        env:
+          EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}
+        run: |
+          # Robot mengambil ID langsung dari server Expo
+          PROJECT_ID=$(curl -s -H "Authorization: Bearer $EXPO_TOKEN" "https://api.expo.dev/v2/projects/sopars-team/ai-scaner" | jq -r '.data.id')
+          echo "Berhasil menemukan ID: $PROJECT_ID"
+          
+          # Robot menanamkan ID-nya langsung ke dalam aplikasimu
+          jq ".expo.extra.eas.projectId = \"$PROJECT_ID\" | .expo.owner = \"sopars-team\" | .expo.slug = \"ai-scaner\"" app.json > tmp.json && mv tmp.json app.json
+
       - name: Build APK
         env:
           EXPO_TOKEN: ${{ secrets.EXPO_TOKEN }}

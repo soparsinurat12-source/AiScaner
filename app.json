@@ -1,13 +1,14 @@
 {
   "expo": {
     "name": "AI Scanner",
-    "slug": "ai-scanner",
+    "slug": "ai-scaner",
+    "owner": "sopar",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
     "android": {
-      "package": "com.yourname.aiscanner",
+      "package": "com.sopar.aiscanner",
       "permissions": ["android.permission.CAMERA"]
     },
     "plugins": [
@@ -17,6 +18,11 @@
           "cameraPermission": "Aplikasi membutuhkan akses kamera untuk melakukan scan AI."
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "88ecda42-fa15-4dfa-944b-26a06f653fc1"
+      }
+    }
   }
 }
